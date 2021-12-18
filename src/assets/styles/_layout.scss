@@ -1,0 +1,53 @@
+html,
+body {
+  font-family: 'Noto Sans KR', sans-serif, 'Apple SD Gothic Neo';
+  color: #555;
+}
+
+.wrapper {
+  position: relative;
+  padding-top: 6rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  padding: 0 4rem;
+  width: 100%;
+  max-width: 192rem;
+  height: 6rem;
+  background-color: #a5d6a7;
+
+  h1 {
+    margin: 0 auto;
+    font-size: 2.8rem;
+    line-height: 6rem;
+    color: #222;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 100%;
+  max-width: 120rem;
+}
+
+@media (max-width: 128rem) {
+  .container {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 76.8rem) {
+  html,
+  body {
+    font-size: 8px;
+  }
+  .header {
+    padding: 0 2rem;
+  }
+  .container {
+    padding: 2rem;
+  }
+}
