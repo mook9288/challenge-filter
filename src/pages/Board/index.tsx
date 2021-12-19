@@ -1,3 +1,5 @@
+import Select from '../../components/atoms/Select';
+
 const Board = () => {
   return (
     <div>
@@ -45,6 +47,7 @@ const Board = () => {
                 <li className='select__menu__item'>eee</li>
               </ul>
             </div>
+            <Select />
           </div>
           <div className='search-area__right'>
             <div className='checkbox'>
