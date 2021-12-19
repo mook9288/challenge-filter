@@ -14,7 +14,7 @@ const Board = () => {
         <div className='search-area'>
           <div className='search-area__left'>
             <div className='select'>
-              <span>Select</span>
+              <span className='select__text'>Select</span>
               <ul className='select__menu'>
                 <li className='select__menu__item'>
                   <div className='checkbox'>
@@ -37,7 +37,7 @@ const Board = () => {
               </ul>
             </div>
             <div className='select'>
-              <span>Select</span>
+              <span className='select__text'>Select</span>
               <ul className='select__menu'>
                 <li className='select__menu__item'>eee</li>
                 <li className='select__menu__item'>eee</li>
@@ -47,6 +47,14 @@ const Board = () => {
             </div>
           </div>
           <div className='search-area__right'>
+            <div className='checkbox'>
+              <input type='checkbox' />
+              <label></label>
+            </div>
+            <div className='checkbox toggle'>
+              <input type='checkbox' />
+              <label></label>
+            </div>
             <div className='checkbox toggle'>
               <input type='checkbox' />
               <label>상담 중인 요청만 보기</label>
