@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import Select from '../../components/atoms/Select';
+import Checkbox from '../../components/atoms/Checkbox';
 
 const Board = () => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(e.target.checked);
+  };
   return (
     <div>
       <div className='header'>
@@ -13,55 +20,20 @@ const Board = () => {
             파트너님에게 딱 맞는 요청서를 찾아보세요.
           </p>
         </div>
+        <div></div>
         <div className='search-area'>
           <div className='search-area__left'>
-            <div className='select'>
-              <span className='select__text'>Select</span>
-              <ul className='select__menu'>
-                <li className='select__menu__item'>
-                  <div className='checkbox'>
-                    <input type='checkbox' />
-                    <label>eeeee</label>
-                  </div>
-                </li>
-                <li className='select__menu__item'>
-                  <div className='checkbox checked'>
-                    <input type='checkbox' />
-                    <label>eeeee</label>
-                  </div>
-                </li>
-                <li className='select__menu__item'>
-                  <div className='checkbox disabled'>
-                    <input type='checkbox' />
-                    <label>eeeee</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className='select'>
-              <span className='select__text'>Select</span>
-              <ul className='select__menu'>
-                <li className='select__menu__item'>eee</li>
-                <li className='select__menu__item'>eee</li>
-                <li className='select__menu__item'>eee</li>
-                <li className='select__menu__item'>eee</li>
-              </ul>
-            </div>
+            <Select />
             <Select />
           </div>
           <div className='search-area__right'>
-            <div className='checkbox'>
-              <input type='checkbox' />
-              <label></label>
-            </div>
-            <div className='checkbox toggle'>
-              <input type='checkbox' />
-              <label></label>
-            </div>
-            <div className='checkbox toggle'>
-              <input type='checkbox' />
-              <label>상담 중인 요청만 보기</label>
-            </div>
+            <Checkbox
+              id={'checkbox'}
+              checked={isChecked}
+              onChange={handleOnChange}
+              label={'상담 중인 요청만 보기'}
+              toggle={true}
+            />
           </div>
         </div>
         <div className='card-wrap'>
