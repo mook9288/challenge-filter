@@ -1,6 +1,13 @@
 .card-wrap {
   display: flex;
   flex-wrap: wrap;
+
+  .no-data {
+    padding: 2rem 1rem;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1) ;
+  }
 }
 .card {
   display: inline-block;
@@ -28,6 +35,9 @@
       position: relative;
       display: block;
       padding-right: 5rem;
+      &.pr0 {
+        padding-right: 0;
+      }
       strong {
         display: inline-block;
         font-size: 1.4rem;

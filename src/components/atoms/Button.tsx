@@ -31,7 +31,6 @@ const Button: FC<Props> = ({
     children === undefined ||
     (Array.isArray(children) && children.length === 0);
 
-  console.log(hasNotChildren, children);
   return (
     <button className={classNames('btn', size, variant && 'btn__' + variant)}>
       {hasNotChildren && icon && !icon && (
