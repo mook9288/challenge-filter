@@ -1,0 +1,50 @@
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 1rem;
+  padding: 2rem 1rem;
+  width: calc((100% - 4rem) / 3);
+  border: 1px solid #bbb;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    border-color: #a5d6a7;
+  }
+
+  &:nth-child(3n - 2) {
+    margin-left: 0;
+  }
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  &__content {
+    .title {
+      position: relative;
+      display: block;
+      strong {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+    }
+    .client {
+      display: block;
+      margin-top: .8rem;
+      font-size: 1.2rem;
+    }
+    .data {
+      display: block;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #888;
+    }
+  }
+  &__description {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #bbb;
+  }
+}
