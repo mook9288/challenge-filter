@@ -49,19 +49,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>
@@ -81,19 +81,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>
@@ -113,19 +113,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>
@@ -145,19 +145,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>
@@ -177,19 +177,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>
@@ -209,19 +209,19 @@ const Board = () => {
             <div className='card__description'>
               <dl className='request-data'>
                 <dt className='request-data__title'>도면개수</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>총 수량</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>가공 방식</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
               <dl className='request-data'>
                 <dt className='request-data__title'>재료</dt>
-                <dd className='desc'>dshfsjkdhfkjdsf</dd>
+                <dd className='request-data__desc'>dshfsjkdhfkjdsf</dd>
               </dl>
             </div>
             <div className='button-area'>

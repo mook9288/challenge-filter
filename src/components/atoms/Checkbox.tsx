@@ -18,11 +18,7 @@ const Checkbox = ({
 }: Props) => {
   return (
     <div
-      className={`${classNames(
-        'checkbox',
-        { fitted: label },
-        { toggle: toggle }
-      )}`}
+      className={classNames('checkbox', { fitted: label }, { toggle: toggle })}
     >
       <input type='checkbox' id={id} onChange={onChange} checked={checked} />
       <label htmlFor={id}>{label}</label>

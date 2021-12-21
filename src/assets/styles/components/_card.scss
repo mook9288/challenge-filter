@@ -3,11 +3,13 @@
   flex-wrap: wrap;
 }
 .card {
+  display: inline-block;
   margin: 1rem;
   padding: 2rem 1rem;
   width: calc((100% - 4rem) / 3);
-  border: 1px solid #bbb;
+  border: 1px solid #eaeaea;
   border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .1) ;
 
   &:hover,
   &:focus {
@@ -25,9 +27,26 @@
     .title {
       position: relative;
       display: block;
+      padding-right: 5rem;
       strong {
+        display: inline-block;
         font-size: 1.4rem;
         font-weight: 600;
+        line-height: 1.429;
+        color: #333;
+      }
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        padding: .4rem .6rem;
+        max-width: 5rem;
+        border: 1px solid orange;
+        border-radius: 50rem;
+        font-size: 1rem;
+        line-height: 1;
+        color: orange;
       }
     }
     .client {
@@ -45,6 +64,31 @@
   &__description {
     margin-top: 1rem;
     padding-top: 2rem;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #eaeaea;
+  }
+
+  .request-data {
+    margin-top: .8rem;
+    &:first-child {
+      margin-top: 0;
+    }
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    &__title,
+    &__desc {
+      float: left;
+    }
+    &__title {
+      width: 8rem;
+      font-size: 1.2rem;
+    }
+    &__desc {
+      width: calc(100% - 8rem);
+      font-weight: 600;
+      color: #333;
+    }
   }
 }
