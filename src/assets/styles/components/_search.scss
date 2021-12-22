@@ -1,7 +1,21 @@
 .search-area {
+  display: table;
+  margin: 3rem 0 2rem;
+  width: 100%;
+
   &__left {
+    display: table-cell;
+    vertical-align: middle;
+
     :first-child {
       margin-left: 0;
     }
+  }
+
+  &__right {
+    display: table-cell;
+    width: 20rem;
+    vertical-align: middle;
+    text-align: right;
   }
 }

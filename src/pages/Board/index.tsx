@@ -2,15 +2,25 @@ import { useState } from 'react';
 import Select from '../../components/atoms/Select';
 import Checkbox from '../../components/atoms/Checkbox';
 import Button from '../../components/atoms/Button';
-import data from '../../requests.json';
 import CardItem from '../../components/Card/CardItem';
+import data from '../../requests.json';
+import { RequestType } from '../../type';
+import { STATUS } from '../../contant';
 
 const Board = () => {
   const { requests: requestsData } = data;
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(e.target.checked);
+    setIsChecked(!isChecked);
+  };
+
+  const filterRequests = () => {
+    if (isChecked) {
+      return requestsData.filter((item) => item.status === STATUS.ACTIVE);
+    } else {
+      return requestsData;
+    }
   };
 
   return (
@@ -41,8 +51,10 @@ const Board = () => {
           </div>
         </div>
         <div className='card-wrap'>
-          {requestsData.length > 0 ? (
-            requestsData.map((data) => <CardItem data={data} key={data.id} />)
+          {filterRequests().length > 0 ? (
+            filterRequests().map((data) => (
+              <CardItem data={data} key={data.id} />
+            ))
           ) : (
             <div className='no-data'>조건에 맞는 견젹 요청이 없습니다.</div>
           )}

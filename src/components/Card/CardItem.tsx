@@ -8,8 +8,8 @@ interface Props {
   data: RequestType;
 }
 const CardItem: FC<Props> = ({ data }) => {
-  console.log('data', data);
   const { title, client, due, count, amount, method, material, status } = data;
+
   return (
     <div className='card'>
       <CardContent title={title} client={client} due={due} status={status} />
