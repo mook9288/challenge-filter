@@ -1,7 +1,10 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { FC, useRef, useState, useCallback } from 'react';
 import useClickOutside from '../../helpers/useClickOutside';
 
-const Select = () => {
+interface Props {
+  item: string;
+}
+const Select: FC<Props> = ({ item }) => {
   const wrapperRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -19,9 +22,6 @@ const Select = () => {
       </span>
       {open && (
         <ul className='select__menu'>
-          <li className='select__menu__item'>eee</li>
-          <li className='select__menu__item'>eee</li>
-          <li className='select__menu__item'>eee</li>
           <li className='select__menu__item'>eee</li>
         </ul>
       )}

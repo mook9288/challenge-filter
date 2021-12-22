@@ -9,3 +9,8 @@ export interface RequestType {
   material: string[];
   status: string;
 }
+
+export interface SelectOptionType {
+  id: string;
+  labal: string;
+}

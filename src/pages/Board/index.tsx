@@ -5,7 +5,7 @@ import Button from '../../components/atoms/Button';
 import CardItem from '../../components/Card/CardItem';
 import data from '../../requests.json';
 import { RequestType } from '../../type';
-import { STATUS } from '../../contant';
+import { STATUS } from '../../constants';
 
 const Board = () => {
   const { requests: requestsData } = data;
