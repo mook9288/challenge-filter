@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import Select from '../../components/atoms/Select';
 import Checkbox from '../../components/atoms/Checkbox';
-import Button from '../../components/atoms/Button';
 import CardItem from '../../components/Card/CardItem';
 import data from '../../requests.json';
-import { RequestType } from '../../type';
-import { STATUS } from '../../constants';
+import { STATUS, SELECT_NAME, methodItem, materialItem } from '../../constants';
 
 const Board = () => {
   const { requests: requestsData } = data;
@@ -37,12 +35,21 @@ const Board = () => {
         </div>
         <div className='search-area'>
           <div className='search-area__left'>
-            <Select />
-            <Select />
+            <Select
+              title={SELECT_NAME.METHOD}
+              name={'method'}
+              item={methodItem}
+            />
+            <Select
+              title={SELECT_NAME.MATERIAL}
+              name={'material'}
+              item={materialItem}
+            />
           </div>
           <div className='search-area__right'>
             <Checkbox
               id={'checkbox'}
+              name={'active'}
               checked={isChecked}
               onChange={handleOnChange}
               label={'상담 중인 요청만 보기'}

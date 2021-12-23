@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
-import { STATUS } from '../../contant';
+import { STATUS } from '../../constants';
 
 interface Props {
   title: string;

@@ -12,5 +12,5 @@ export interface RequestType {
 
 export interface SelectOptionType {
   id: string;
-  labal: string;
+  label: string;
 }
