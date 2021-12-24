@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Select from '../../components/atoms/Select';
 import Checkbox from '../../components/atoms/Checkbox';
 import CardItem from '../../components/Card/CardItem';
@@ -8,10 +8,22 @@ import { STATUS, SELECT_NAME, methodItem, materialItem } from '../../constants';
 const Board = () => {
   const { requests: requestsData } = data;
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isFilterSelected, setIsFilterSelected] = useState<string[]>([]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(!isChecked);
   };
+
+  const handleMethodChange = useCallback(
+    (checked, item) => {
+      if (checked) {
+        setIsFilterSelected([...isFilterSelected, item]);
+      } else {
+        setIsFilterSelected(isFilterSelected.filter((el) => el !== item));
+      }
+    },
+    [isFilterSelected]
+  );
 
   const filterRequests = () => {
     if (isChecked) {
@@ -39,11 +51,15 @@ const Board = () => {
               title={SELECT_NAME.METHOD}
               name={'method'}
               item={methodItem}
+              isFilterSelected={isFilterSelected}
+              onMethodChange={handleMethodChange}
             />
             <Select
               title={SELECT_NAME.MATERIAL}
               name={'material'}
               item={materialItem}
+              isFilterSelected={isFilterSelected}
+              onMethodChange={handleMethodChange}
             />
           </div>
           <div className='search-area__right'>
@@ -58,10 +74,11 @@ const Board = () => {
           </div>
         </div>
         <div className='card-wrap'>
-          {filterRequests().length > 0 ? (
-            filterRequests().map((data) => (
-              <CardItem data={data} key={data.id} />
-            ))
+          {requestsData.length > 0 ? (
+            requestsData.map((data) => {
+              if (isChecked && data.status !== STATUS.ACTIVE) return;
+              return <CardItem data={data} key={data.id} />;
+            })
           ) : (
             <div className='no-data'>조건에 맞는 견젹 요청이 없습니다.</div>
           )}

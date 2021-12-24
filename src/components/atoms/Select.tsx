@@ -7,12 +7,20 @@ interface Props {
   title: string;
   name: string;
   item: SelectOptionType[];
+  isFilterSelected: string[];
+  onMethodChange: (checked: boolean, item: string) => void;
 }
 
-const Select: FC<Props> = ({ title, name, item }) => {
+const Select: FC<Props> = ({
+  title,
+  name,
+  item,
+  isFilterSelected,
+  onMethodChange,
+}) => {
   const wrapperRef = useRef(null);
   const [open, setOpen] = useState<boolean>(false);
-  const [isFilterSelected, setIsFilterSelected] = useState<string[]>([]);
+  // const [isFilterSelected, setIsFilterSelected] = useState<string[]>([]);
 
   useClickOutside(
     wrapperRef,
@@ -21,16 +29,16 @@ const Select: FC<Props> = ({ title, name, item }) => {
     }, [])
   );
 
-  const handleMethodChange = useCallback(
-    (checked, item) => {
-      if (checked) {
-        setIsFilterSelected([...isFilterSelected, item]);
-      } else {
-        setIsFilterSelected(isFilterSelected.filter((el) => el !== item));
-      }
-    },
-    [isFilterSelected]
-  );
+  // const handleMethodChange = useCallback(
+  //   (checked, item) => {
+  //     if (checked) {
+  //       setIsFilterSelected([...isFilterSelected, item]);
+  //     } else {
+  //       setIsFilterSelected(isFilterSelected.filter((el) => el !== item));
+  //     }
+  //   },
+  //   [isFilterSelected]
+  // );
 
   return (
     <div className='select' ref={wrapperRef}>
@@ -45,7 +53,7 @@ const Select: FC<Props> = ({ title, name, item }) => {
                 id={item.id}
                 name={name}
                 checked={isFilterSelected.includes(item.id) ? true : false}
-                onChange={(e) => handleMethodChange(e.target.checked, item.id)}
+                onChange={(e) => onMethodChange(e.target.checked, item.id)}
                 label={item.label}
               />
             </li>
