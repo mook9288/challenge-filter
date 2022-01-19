@@ -52,8 +52,8 @@ const Select: FC<Props> = ({
               <Checkbox
                 id={item.id}
                 name={name}
-                checked={isFilterSelected.includes(item.id) ? true : false}
-                onChange={(e) => onMethodChange(e.target.checked, item.id)}
+                checked={isFilterSelected.includes(item.label) ? true : false}
+                onChange={(e) => onMethodChange(e.target.checked, item.label)}
                 label={item.label}
               />
             </li>

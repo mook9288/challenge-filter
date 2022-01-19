@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 
 interface Props {
@@ -9,7 +9,9 @@ interface Props {
   variant?: ButtonVariant;
   icon?: boolean | string;
   iconPosition?: string;
+  className?: string;
   children?: React.ReactNode;
+  onClick?: () => void;
 }
 
 export type size = 'basic' | 'tiny' | 'small' | 'medium' | 'large';
@@ -23,8 +25,10 @@ const Button: FC<Props> = ({
   link,
   variant,
   icon,
-  iconPosition,
+  iconPosition = 'left',
   children,
+  onClick,
+  className,
 }) => {
   const hasNotChildren =
     children === null ||
@@ -32,12 +36,23 @@ const Button: FC<Props> = ({
     (Array.isArray(children) && children.length === 0);
 
   return (
-    <button className={classNames('btn', size, variant && 'btn__' + variant)}>
-      {hasNotChildren && icon && !icon && (
-        <i className={classNames('btn__ico', icon)}></i>
+    <button
+      className={classNames(
+        'btn',
+        size,
+        variant && 'btn__' + variant,
+        className
+      )}
+      onClick={onClick}
+    >
+      {hasNotChildren && icon && iconPosition === 'left' && (
+        <i className={classNames('btn__ico', `ico__${icon}`)}></i>
       )}
       {!hasNotChildren && children}
       {hasNotChildren && label && <span className='btn__label'>{label}</span>}
+      {hasNotChildren && icon && iconPosition === 'right' && (
+        <i className={classNames('btn__ico', `ico__${icon}`, 'pos-right')}></i>
+      )}
     </button>
   );
 };

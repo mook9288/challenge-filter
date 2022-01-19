@@ -2,13 +2,15 @@ import { useCallback, useState } from 'react';
 import Select from '../../components/atoms/Select';
 import Checkbox from '../../components/atoms/Checkbox';
 import CardItem from '../../components/Card/CardItem';
+import Button from '../../components/atoms/Button';
 import data from '../../requests.json';
 import { STATUS, SELECT_NAME, methodItem, materialItem } from '../../constants';
 
 const Board = () => {
   const { requests: requestsData } = data;
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [isFilterSelected, setIsFilterSelected] = useState<string[]>([]);
+  const [isFilterMethod, setIsFilterMethod] = useState<string[]>([]);
+  const [isFilterMaterial, setIsFilterMaterial] = useState<string[]>([]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(!isChecked);
@@ -17,20 +19,40 @@ const Board = () => {
   const handleMethodChange = useCallback(
     (checked, item) => {
       if (checked) {
-        setIsFilterSelected([...isFilterSelected, item]);
+        setIsFilterMethod([...isFilterMethod, item]);
       } else {
-        setIsFilterSelected(isFilterSelected.filter((el) => el !== item));
+        setIsFilterMethod(isFilterMethod.filter((el) => el !== item));
       }
     },
-    [isFilterSelected]
+    [isFilterMethod]
+  );
+
+  const handleMaterialChange = useCallback(
+    (checked, item) => {
+      if (checked) {
+        setIsFilterMaterial([...isFilterMaterial, item]);
+      } else {
+        setIsFilterMaterial(isFilterMaterial.filter((el) => el !== item));
+      }
+    },
+    [isFilterMaterial]
   );
 
   const filterRequests = () => {
-    if (isChecked) {
-      return requestsData.filter((item) => item.status === STATUS.ACTIVE);
-    } else {
-      return requestsData;
-    }
+    return requestsData.filter(
+      (item) =>
+        (isFilterMethod.length > 0
+          ? isFilterMethod.some((value) => item.method.includes(value))
+          : true) &&
+        (isFilterMaterial.length > 0
+          ? isFilterMaterial.some((value) => item.material.includes(value))
+          : true)
+    );
+  };
+
+  const handleReset = () => {
+    setIsFilterMethod([]);
+    setIsFilterMaterial([]);
   };
 
   return (
@@ -51,15 +73,22 @@ const Board = () => {
               title={SELECT_NAME.METHOD}
               name={'method'}
               item={methodItem}
-              isFilterSelected={isFilterSelected}
+              isFilterSelected={isFilterMethod}
               onMethodChange={handleMethodChange}
             />
             <Select
               title={SELECT_NAME.MATERIAL}
               name={'material'}
               item={materialItem}
-              isFilterSelected={isFilterSelected}
-              onMethodChange={handleMethodChange}
+              isFilterSelected={isFilterMaterial}
+              onMethodChange={handleMaterialChange}
+            />
+            <Button
+              label='초기화'
+              variant='link'
+              icon='reset'
+              onClick={handleReset}
+              className='btn__reset'
             />
           </div>
           <div className='search-area__right'>
@@ -74,8 +103,8 @@ const Board = () => {
           </div>
         </div>
         <div className='card-wrap'>
-          {requestsData.length > 0 ? (
-            requestsData.map((data) => {
+          {filterRequests().length > 0 ? (
+            filterRequests().map((data) => {
               if (isChecked && data.status !== STATUS.ACTIVE) return;
               return <CardItem data={data} key={data.id} />;
             })
