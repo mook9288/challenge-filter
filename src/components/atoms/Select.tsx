@@ -20,7 +20,6 @@ const Select: FC<Props> = ({
 }) => {
   const wrapperRef = useRef(null);
   const [open, setOpen] = useState<boolean>(false);
-  // const [isFilterSelected, setIsFilterSelected] = useState<string[]>([]);
 
   useClickOutside(
     wrapperRef,
@@ -28,17 +27,6 @@ const Select: FC<Props> = ({
       setOpen(false);
     }, [])
   );
-
-  // const handleMethodChange = useCallback(
-  //   (checked, item) => {
-  //     if (checked) {
-  //       setIsFilterSelected([...isFilterSelected, item]);
-  //     } else {
-  //       setIsFilterSelected(isFilterSelected.filter((el) => el !== item));
-  //     }
-  //   },
-  //   [isFilterSelected]
-  // );
 
   return (
     <div className='select' ref={wrapperRef}>

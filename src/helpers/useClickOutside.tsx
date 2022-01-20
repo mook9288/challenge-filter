@@ -1,6 +1,9 @@
-import { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
-const useClickOutside = (ref: any, cb: any) => {
+const useClickOutside = <T extends HTMLElement = HTMLElement>(
+  ref: RefObject<T>,
+  cb: (e?: any) => void
+) => {
   const checkClickOutside = (e: any) => {
     if (ref.current && !ref.current.contains(e.target)) {
       cb();

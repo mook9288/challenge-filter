@@ -13,16 +13,16 @@ const Board = () => {
   const [isFilterMaterial, setIsFilterMaterial] = useState<string[]>([]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(!isChecked);
+    setIsChecked(e.target.checked);
   };
 
   const handleMethodChange = useCallback(
     (checked, item) => {
       if (checked) {
         setIsFilterMethod([...isFilterMethod, item]);
-      } else {
-        setIsFilterMethod(isFilterMethod.filter((el) => el !== item));
+        return;
       }
+      setIsFilterMethod((prev) => prev.filter((el) => el !== item));
     },
     [isFilterMethod]
   );
@@ -31,23 +31,36 @@ const Board = () => {
     (checked, item) => {
       if (checked) {
         setIsFilterMaterial([...isFilterMaterial, item]);
-      } else {
-        setIsFilterMaterial(isFilterMaterial.filter((el) => el !== item));
+        return;
       }
+      setIsFilterMaterial((prev) => prev.filter((el) => el !== item));
     },
     [isFilterMaterial]
   );
 
+  const handleFilterList = (filterList: string[], type: string[]) => {
+    const hasList = !!filterList?.length;
+    if (hasList) {
+      return filterList?.some((value) => type.includes(value));
+    }
+    return true;
+  };
+
   const filterRequests = () => {
-    return requestsData.filter(
-      (item) =>
-        (isFilterMethod.length > 0
-          ? isFilterMethod.some((value) => item.method.includes(value))
-          : true) &&
-        (isFilterMaterial.length > 0
-          ? isFilterMaterial.some((value) => item.material.includes(value))
-          : true)
+    let filterRequestList = requestsData;
+    filterRequestList = filterRequestList.filter(
+      ({ method, material }) =>
+        handleFilterList(isFilterMethod, method) &&
+        handleFilterList(isFilterMaterial, material)
     );
+
+    if (isChecked) {
+      filterRequestList = filterRequestList.filter(
+        ({ status }) => status === STATUS.ACTIVE
+      );
+    }
+
+    return filterRequestList;
   };
 
   const handleReset = () => {
@@ -104,10 +117,9 @@ const Board = () => {
         </div>
         <div className='card-wrap'>
           {filterRequests().length > 0 ? (
-            filterRequests().map((data) => {
-              if (isChecked && data.status !== STATUS.ACTIVE) return;
-              return <CardItem data={data} key={data.id} />;
-            })
+            filterRequests().map((data) => (
+              <CardItem data={data} key={data.id} />
+            ))
           ) : (
             <div className='no-data'>조건에 맞는 견젹 요청이 없습니다.</div>
           )}
